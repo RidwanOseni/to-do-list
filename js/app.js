@@ -4,6 +4,10 @@ const dateElement = document.getElementById("date");
 const list = document.getElementById("list");
 const input = document.getElementById("input");
 
+// Variables
+let LIST = [],
+ id = 0;
+
 // Classes names
 const CHECK = "fa-check-circle";
 const UNCHECK = "fa-circle-thin";
@@ -40,12 +44,22 @@ document.addEventListener("keyup", function(event){
 
         // if the input isn't empty
         if(toDo){
-            addToDo(toDo);
+            addToDo(toDo, id, false, false);
+
+            LIST.push({
+                name : toDo,
+                id : id,
+                done : false,
+                trash : false
+            });
+
+            id++;
+
         }
         input.value = "";
     }
 });
 
-addToDo("test1", 1, true, false);
+// addToDo("test1", 1, true, false);
 
 
